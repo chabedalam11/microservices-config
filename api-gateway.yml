@@ -11,6 +11,6 @@ spring:
         - id: discovery
           uri: lb://discovery-server
           predicates:
-            - Path=/discovery/**
+            - Path=/discovery,/discovery/**
           filters:
             - StripPrefix=1
