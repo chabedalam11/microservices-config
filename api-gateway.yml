@@ -9,6 +9,8 @@ spring:
     gateway:
       routes:
         - id: discovery
-          uri: http://localhost:8761
+          uri: lb://discovery-server
           predicates:
-            - Path=/eureka/**
+            - Path=/discovery/**
+          filters:
+            - StripPrefix=1
