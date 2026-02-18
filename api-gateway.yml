@@ -11,6 +11,4 @@ spring:
         - id: discovery
           uri: http://localhost:8761
           predicates:
-            - Path=/discovery,/discovery/**
-          filters:
-            - StripPrefix=1
+            - Path=/eureka/**,/
