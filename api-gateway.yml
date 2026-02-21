@@ -14,5 +14,20 @@ spring:
               uri: http://localhost:8761
               predicates:
                 - Path=/eureka/**,/
+
+            - id: auth-service
+              uri: lb://auth-service
+              predicates:
+                - Path=/auth/**
+
+            - id: admin
+              uri: lb://auth-service
+              predicates:
+                - Path=/admin/**
+
+            - id: test
+              uri: lb://auth-service
+              predicates:
+                - Path=/test/**
 jwt:
   secret: 8d92f3f8c2d44a12b9c6e7a8d9e0f1128d92f3f8c2d44a12b9c6e7a8d9e0f11
