@@ -29,5 +29,10 @@ spring:
               uri: lb://auth-service
               predicates:
                 - Path=/test/**
+
+            - id: user-service
+              uri: lb://user-service
+              predicates:
+                - Path=/users/**
 jwt:
   secret: 8d92f3f8c2d44a12b9c6e7a8d9e0f1128d92f3f8c2d44a12b9c6e7a8d9e0f11
