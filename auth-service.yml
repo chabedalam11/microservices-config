@@ -1,4 +1,8 @@
 server:
+  tomcat:
+    threads:
+      max: 200
+      min-spare: 20
   port: 8081
 
 spring:
@@ -6,13 +10,16 @@ spring:
     url: jdbc:postgresql://192.168.20.45:5432/micro_service_test
     username: aslpgsql
     password: Ipsb@%$321
+    hikari:
+      maximum-pool-size: 30 #CPU cores × 2 + effective disk count EX. 10-20 for 4 core
+      minimum-idle: 10
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
 
   data:
     redis:
