@@ -40,6 +40,9 @@ spring:
                     redis-rate-limiter.replenishRate: 5
                     redis-rate-limiter.burstCapacity: 10
                     key-resolver: "#{@userKeyResolver}"
+          httpclient:
+            connect-timeout: 2000
+            response-timeout: 5s
 
 eureka:
   client:
