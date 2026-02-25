@@ -6,6 +6,7 @@ server:
   port: 8082
 
 spring:
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://192.168.20.45:5432/micro_service_test
@@ -17,6 +18,7 @@ spring:
       idle-timeout: 30000
       max-lifetime: 1800000
       connection-timeout: 30000
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -31,6 +33,13 @@ spring:
     type: redis
     redis:
       time-to-live: 600000   # 10 minutes
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 eureka:
   client:
