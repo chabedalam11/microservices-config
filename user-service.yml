@@ -61,3 +61,7 @@ resilience4j:
       authService:
         timeoutDuration: 3s
 
+logging:
+  level:
+    org.springframework.kafka: DEBUG
+
