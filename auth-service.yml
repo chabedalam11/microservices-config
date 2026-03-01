@@ -6,6 +6,19 @@ server:
   port: 8081
 
 spring:
+
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: kafka-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: com.chabed.micro.event.UserCreatedEvent
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://192.168.20.45:5432/micro_service_test
@@ -26,18 +39,6 @@ spring:
     redis:
       host: localhost
       port: 6379
-
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
-    consumer:
-      group-id: kafka-group-id
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
-        spring.json.use.type.headers: false
-        spring.json.value.default.type: com.chabed.micro.event.UserCreatedEvent
 
 eureka:
   client:
