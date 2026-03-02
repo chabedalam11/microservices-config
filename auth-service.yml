@@ -37,8 +37,3 @@ jwt:
   access-expiration: 900000
   refresh-expiration: 604800000
 
-logging:
-  level:
-    org.springframework.kafka: DEBUG
-    org.springframework.kafka.listener: DEBUG
-    org.apache.kafka.clients.consumer: INFO
