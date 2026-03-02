@@ -6,14 +6,6 @@ server:
   port: 8082
 
 spring:
-  kafka:
-    bootstrap-servers: 127.0.0.1:9093
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      properties:
-        spring.json.add.type.headers: true
-
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://192.168.20.45:5432/micro_service_test
